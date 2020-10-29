@@ -2,9 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { getClassName } from '@kibalabs/core';
 
-import { IComponentProps, defaultComponentProps, LoadingSpinner, themeToCss, useBuiltTheme } from '../..';
 import { IButtonTheme } from './theme';
-import { IIconProps, Spacing, PaddingSize } from '../../subatoms';
+import { IComponentProps, defaultComponentProps } from '../../model';
+import { themeToCss } from '../../util';
+import { useBuiltTheme } from '../../theming';
+import { IIconProps, LoadingSpinner, Spacing, PaddingSize } from '../../subatoms';
 
 interface IStyledButtonProps {
   theme: IButtonTheme;
@@ -44,7 +46,7 @@ const StyledButton = styled.button<IStyledButtonProps>`
     ${(props: IStyledButtonProps): string => themeToCss(props.theme.normal.focus?.background)};
   }
   &.disabled {
-    cursor: not-allowed;
+    cursor: auto;
     ${(props: IStyledButtonProps): string => themeToCss(props.theme.disabled.default?.text)};
     ${(props: IStyledButtonProps): string => themeToCss(props.theme.disabled.default?.background)};
     &:hover {

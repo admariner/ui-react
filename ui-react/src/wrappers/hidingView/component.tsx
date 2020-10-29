@@ -6,9 +6,11 @@ import { IWrapperProps, defaultWrapperProps } from '../wrapperProps';
 
 interface IStyledHidingViewProps extends IWrapperProps {
   isHidden?: boolean;
+  isInvisible?: boolean;
 }
 
 const withHidingView = (Component: React.ComponentType<IStyledHidingViewProps>): React.ComponentType => styled(Component)<IStyledHidingViewProps>`
+  ${(props: IStyledHidingViewProps): string => props.isInvisible ? `visibility: hidden !important;` : ''};
   ${(props: IStyledHidingViewProps): string => props.isHidden ? `display: none !important;` : ''};
 `;
 
@@ -20,6 +22,7 @@ const StyledHidingView = withHidingView((props: IStyledHidingViewProps): React.R
 
 export interface IHidingViewProps extends IWrapperProps {
   isHidden?: boolean;
+  isInvisible?: boolean;
 }
 
 export const HidingView = (props: IHidingViewProps): React.ReactElement => {
@@ -27,6 +30,7 @@ export const HidingView = (props: IHidingViewProps): React.ReactElement => {
     <StyledHidingView
       className={getClassName(HidingView.displayName, props.className)}
       isHidden={props.isHidden}
+      isInvisible={props.isInvisible}
     >
       {props.children}
     </StyledHidingView>
@@ -36,4 +40,5 @@ export const HidingView = (props: IHidingViewProps): React.ReactElement => {
 HidingView.displayName = 'HidingView';
 HidingView.defaultProps = {
   ...defaultWrapperProps,
+  isInvisible: false,
 };

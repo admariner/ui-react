@@ -21,6 +21,7 @@ import { IWebViewTheme } from '../atoms/webView';
 import { ILinePagerTheme } from '../atoms/linePager';
 import { IProgressCounterItemTheme } from '../atoms/progressCounterItem';
 import { ITabBarItemTheme } from '../atoms/tabBarItem';
+import { ICheckboxTheme } from '../atoms/checkbox';
 
 export interface ITheme extends ThemeType {
   // Base
@@ -51,4 +52,5 @@ export interface ITheme extends ThemeType {
   linePagers: ThemeMap<ILinePagerTheme>,
   progressCounterItems: ThemeMap<IProgressCounterItemTheme>,
   tabBarItems: ThemeMap<ITabBarItemTheme>,
+  checkboxes: ThemeMap<ICheckboxTheme>,
 }

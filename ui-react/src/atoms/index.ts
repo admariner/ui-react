@@ -1,6 +1,7 @@
 export * from './bulletList';
 export * from './bulletText';
 export * from './button';
+export * from './checkbox';
 export * from './linkBase';
 export * from './prettyText';
 export * from './iconButton';

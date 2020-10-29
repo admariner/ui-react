@@ -34,7 +34,7 @@ const StyledIconButton = styled.button<IStyledIconButtonProps>`
     ${(props: IStyledIconButtonProps): string => themeToCss(props.theme.normal.focus?.background)};
   }
   &.disabled {
-    cursor: not-allowed;
+    cursor: auto;
     ${(props: IStyledIconButtonProps): string => themeToCss(props.theme.disabled.default?.text)};
     ${(props: IStyledIconButtonProps): string => themeToCss(props.theme.disabled.default?.background)};
     &:hover {
@@ -64,7 +64,6 @@ export interface IIconButtonProps extends IComponentProps<IIconButtonTheme> {
 export const IconButton = (props: IIconButtonProps): React.ReactElement => {
   const onClicked = (event: React.SyntheticEvent): void => {
     if (props.onClicked) {
-      console.log('here');
       event.stopPropagation();
       props.onClicked();
     }
